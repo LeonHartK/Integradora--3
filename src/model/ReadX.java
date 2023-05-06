@@ -1,10 +1,47 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 public class ReadX {
 
-	public void addUser() {
+	ArrayList<User> users;
+
+	public ReadX(){
+		this.users = new ArrayList<>();
+	}
+
+	public String addUser(String name, String id, Date bindingDate) {
 		// TODO - implement ReadX.addUser
-		throw new UnsupportedOperationException();
+		String message = "";
+		if(!searchUser(id)){
+			users.add(new StandarUser(name, id, bindingDate));
+			message = "El usuario fue creado con exito";
+		} else {
+			message = "El usuario ya se encuentra creado";
+		}
+		return message;
+	}
+
+	public String addPremiumUser(String name, String id, Date bindingDate){
+		String message = "";
+		if(!searchUser(id)){
+			users.add(new PremiumUser(name, id, bindingDate));
+			message = "El usuario fue creado con exito";
+		} else {
+			message = "El usuario ya se encuentra creado";
+		}
+		return message;
+	}
+
+	public boolean searchUser(String id){
+		boolean status = false;
+		for(int i=0; i<users.size() && !status; i++){
+			if(users.get(i).getCedula().equalsIgnoreCase(id)){
+				status = true;
+			} 
+		}
+		return status;
 	}
 
 	public void addProduct() {

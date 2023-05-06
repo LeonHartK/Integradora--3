@@ -8,6 +8,12 @@ public abstract class User {
 	private String cedula;
 	private Date bindingDate;
 
+	public User(String name, String id, Date bindingDate){
+		this.name=name;
+		this.cedula=id;
+		this.bindingDate=bindingDate;
+	}
+
 	public String getName() {
 		return this.name;
 	}
