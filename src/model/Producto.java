@@ -11,9 +11,13 @@ public abstract class Producto {
 	private String url;
 	private int totPagesRead;
 
-	public Producto() {
-		// TODO - implement Producto.Producto
-		throw new UnsupportedOperationException();
+	public Producto(String id, String name, int totPages, Date datePost, String url) {
+		this.id = id;
+		this.name = name;
+		this.totPages = totPages;
+		this.datePost = datePost;
+		this.url = url;
+		this.totPagesRead = 0;
 	}
 
 	public String getId() {
