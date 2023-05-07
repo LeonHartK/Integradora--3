@@ -6,9 +6,11 @@ import java.util.Date;
 public class ReadX {
 
 	ArrayList<User> users;
+	ArrayList<Producto> products;
 
 	public ReadX(){
 		this.users = new ArrayList<>();
+		this.products = new ArrayList<>();
 	}
 
 	public String addUser(String name, String id, Date bindingDate) {
@@ -44,9 +46,59 @@ public class ReadX {
 		return status;
 	}
 
-	public void addProduct() {
-		// TODO - implement ReadX.addProduct
-		throw new UnsupportedOperationException();
+	public String addBook(String id, String name, int totPages, Date datePost, String url, String reseña, typeGenre typeGenre, double saleValue){
+		String message = "";
+		if(!searchProduct(id)){
+			products.add(new Libro(id, name, totPages, datePost, url, reseña, typeGenre, saleValue));
+			message = "El libro fue creado con exito";
+		} else{
+			message = "El libro ya se encuentra creado";
+		}
+		return message;
+	}
+
+	public String addRevista(String id, String name, int totPages, Date datePost, String url, typeCategory typeCategoria, double subcriptionValue, String issuancePeriodicity){
+		String message = "";
+		if(!searchProduct(id)){
+			products.add(new Revista(id, name, totPages, datePost, url, typeCategoria, subcriptionValue, issuancePeriodicity));
+			message = "La revista fue creado con exito";
+		} else{
+			message = "La revista ya se encuentra creada";
+		}
+		return message;
+	}
+
+	public boolean searchProduct(String id){
+		boolean status = false;
+		for(int i=0; i<products.size() && !status; i++){
+			if(products.get(i).getId().equalsIgnoreCase(id)){
+				status = true;
+			}
+		}
+		return status;
+	}
+
+	public Producto searchObjProduct(String id){
+		boolean status = false;
+		Producto product = null;
+		for(int i=0; i<products.size() && !status; i++){
+			if(products.get(i).getId().equalsIgnoreCase(id)){
+				product = products.get(i);
+				status = true;
+			}
+		}
+		return product;
+	}
+
+	public String removeProduct(String id){
+		String message = "";
+		if(searchObjProduct(id) != null){
+			products.remove(searchObjProduct(id));
+			message = "El producto fue removido con exito";
+		} else{
+			message = "El producto no existe en la base de datos";
+		}
+		return message;
 	}
 
 	public void modifyProduct() {
