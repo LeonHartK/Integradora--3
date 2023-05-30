@@ -172,6 +172,7 @@ public class Main {
 
         System.out.println("Escribe el numero de paginas de la revista a registrar");
         int paginas = entrada.nextInt();
+        entrada.nextLine();
 
         System.out.println("Escribe la fecha en que se posteo la revista");
         String fecha = entrada.nextLine();
