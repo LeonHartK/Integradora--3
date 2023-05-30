@@ -8,10 +8,10 @@ public abstract class User {
 	private String cedula;
 	private Date bindingDate;
 
-	public User(String name, String id, Date bindingDate){
-		this.name=name;
-		this.cedula=id;
-		this.bindingDate=bindingDate;
+	public User(String name, String id, Date bindingDate) {
+		this.name = name;
+		this.cedula = id;
+		this.bindingDate = bindingDate;
 	}
 
 	public String getName() {
@@ -48,6 +48,18 @@ public abstract class User {
 	 */
 	public void setBindingDate(Date bindingDate) {
 		this.bindingDate = bindingDate;
+	}
+
+	public String buyBook(Producto libro) {
+		return null;
+	}
+
+	public String suscripcion(Producto revista) {
+		return null;
+	}
+
+	public boolean searchProduct(String id) {
+		return false;
 	}
 
 }

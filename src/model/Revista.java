@@ -9,7 +9,8 @@ public class Revista extends Producto {
 	private String issuancePeriodicity;
 	private int numberOfSubcriptionActive;
 
-	public Revista(String id, String name, int totPages, Date datePost, String url, typeCategory typeCategoria, double subcriptionValue, String issuancePeriodicity){
+	public Revista(String id, String name, int totPages, Date datePost, String url, typeCategory typeCategoria,
+			double subcriptionValue, String issuancePeriodicity) {
 		super(id, name, totPages, datePost, url);
 		this.typeCategoria = typeCategoria;
 		this.subcriptionValue = subcriptionValue;
@@ -17,18 +18,12 @@ public class Revista extends Producto {
 		this.numberOfSubcriptionActive = 0;
 	}
 
-	public typeCategory getCategoria() {
-		// TODO - implement Revista.getCategoria
-		throw new UnsupportedOperationException();
+	public typeCategory getTypeCategoria() {
+		return typeCategoria;
 	}
 
-	/**
-	 * 
-	 * @param Categoria
-	 */
-	public void setCategoria(typeCategory Categoria) {
-		// TODO - implement Revista.setCategoria
-		throw new UnsupportedOperationException();
+	public void setTypeCategoria(typeCategory typeCategoria) {
+		this.typeCategoria = typeCategoria;
 	}
 
 	public double getSubcriptionValue() {
