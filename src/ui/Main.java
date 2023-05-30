@@ -20,9 +20,18 @@ public class Main {
     public static void main(String[] args) {
         Main cavi = new Main();
 
+        try {
+            cavi.mensajero.leerUserStandar();
+            cavi.mensajero.leerUserPremium();
+            cavi.mensajero.leerLibros();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         int opc;
 
         do {
+
             opc = cavi.menuprincipal();
 
             cavi.ejecutar(opc);

@@ -1,9 +1,12 @@
 package model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class ReadX {
 
@@ -211,6 +214,69 @@ public class ReadX {
 
 	public ArrayList<Producto> getProductos() {
 		return products;
+	}
+
+	public void leerUserStandar() throws FileNotFoundException {
+
+		File directorio = new File(System.getProperty("user.dir") + "/src/inData/UserStand.txt");
+		Scanner infile = new Scanner(directorio);
+
+		String name;
+		String id;
+
+		while (infile.hasNext()) {
+			name = infile.nextLine();
+			id = infile.nextLine();
+
+			addUser(name, id, new Date());
+		}
+		infile.close();
+	}
+
+	public void leerUserPremium() throws FileNotFoundException {
+
+		File directorio = new File(System.getProperty("user.dir") + "/src/inData/UserPremium.txt");
+		Scanner infile = new Scanner(directorio);
+
+		String name;
+		String id;
+
+		while (infile.hasNext()) {
+			name = infile.nextLine();
+			id = infile.nextLine();
+
+			addPremiumUser(name, id, new Date());
+		}
+		infile.close();
+	}
+
+	public void leerLibros() throws FileNotFoundException {
+		File directorio = new File(System.getProperty("user.dir") + "/src/inData/libros.txt");
+		Scanner infile = new Scanner(directorio);
+
+		String id;
+		String name;
+		String totPages;
+		String datePost;
+		String url;
+		String reseña;
+		String typeGenre;
+		String saleValue;
+
+		while (infile.hasNext()) {
+			id = infile.nextLine();
+			name = infile.nextLine();
+			totPages = infile.nextLine();
+			datePost = infile.nextLine();
+			url = infile.nextLine();
+			reseña = infile.nextLine();
+			typeGenre = infile.nextLine();
+			saleValue = infile.nextLine();
+
+			addBook(id, name, Integer.parseInt(totPages), parseo(datePost), url, reseña, Integer.parseInt(typeGenre),
+					Double.parseDouble(saleValue));
+		}
+		infile.close();
 	}
 
 }
