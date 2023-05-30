@@ -76,7 +76,7 @@ public class Main {
         System.out.println("Este es el menú principal");
         System.out.println("1) Comprar un libro");
         System.out.println("2) Suscribirse a una revista");
-        System.out.println("3) Leer un libro");
+        System.out.println("3) Tener sesion de lectura");
         System.out.println("4) Ver mis productos");
         System.out.println("5) Cerrar Sesion");
 
@@ -101,7 +101,6 @@ public class Main {
         System.out.println("¿Que deseas hacer?");
         System.out.println("1) Registrar libro");
         System.out.println("2) Remover libro");
-        System.out.println("3) Modificar libro");
         int n = entrada.nextInt();
         entrada.nextLine();
 
@@ -112,7 +111,6 @@ public class Main {
         System.out.println("¿Que deseas hacer?");
         System.out.println("1) Registrar revista");
         System.out.println("2) Remover revista");
-        System.out.println("3) Modificar revista");
         int n = entrada.nextInt();
         entrada.nextLine();
 
@@ -165,10 +163,6 @@ public class Main {
         System.out.println(mensajero.eliminarPorId(id));
     }
 
-    public void modifyBook() {
-
-    }
-
     public void registerRevista() {
         System.out.println("Escribe el id del producto");
         String id = entrada.nextLine();
@@ -214,10 +208,6 @@ public class Main {
         System.out.println(mensajero.eliminarPorId(id));
     }
 
-    public void modifyRevista() {
-
-    }
-
     public void buyBook() {
         System.out.println("Digite el id del libro que desea comprar");
         String name = entrada.nextLine();
@@ -228,6 +218,10 @@ public class Main {
         System.out.println("Digite el id de la revista que desea suscripcion");
         String id = entrada.nextLine();
         System.out.println(mensajero.suscripcion(getCurrentUser(), id));
+    }
+
+    public void seeProduct() {
+        System.out.println(mensajero.seeProducts(getCurrentUser()));
     }
 
     public void ejecutar(int n) {
@@ -247,7 +241,7 @@ public class Main {
                         } else if (nume == 3) {
 
                         } else if (nume == 4) {
-
+                            seeProduct();
                         }
                     } while (nume != 5);
                 }
@@ -269,8 +263,6 @@ public class Main {
                     registerBook();
                 } else if (exp2 == 2) {
                     removeBook();
-                } else if (exp2 == 3) {
-                    modifyBook();
                 }
             } else if (exp == 2) {
                 int exp3 = menuAdmin3();
@@ -278,8 +270,6 @@ public class Main {
                     registerRevista();
                 } else if (exp3 == 2) {
                     removeRevista();
-                } else if (exp3 == 3) {
-                    modifyRevista();
                 }
             }
         } else if (n == 4) {

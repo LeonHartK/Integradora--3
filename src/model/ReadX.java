@@ -134,13 +134,13 @@ public class ReadX {
 	}
 
 	public String eliminarPorId(String id) {
-		String message = "El mueble no se encuentra creado";
+		String message = "El producto no se encuentra creado";
 		// Buscamos y eliminamos el objeto con el ID dado
 		for (int i = 0; i < products.size(); i++) {
 			Producto mueble = products.get(i);
 			if (mueble.getId().equalsIgnoreCase(id)) {
 				products.remove(i);
-				message = "El mueble fue removido exitosamente";
+				message = "El producto fue removido exitosamente";
 			}
 		}
 		return message;
@@ -192,6 +192,15 @@ public class ReadX {
 			message = "No se encontro la revista";
 		} else if (!(revista instanceof Revista)) {
 			message = "Este producto no es de tipo revista";
+		}
+		return message;
+	}
+
+	public String seeProducts(String userId) {
+		String message = "";
+		User user = searchUserObj(userId);
+		if (user != null) {
+			message = user.seeProducts();
 		}
 		return message;
 	}

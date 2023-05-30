@@ -62,4 +62,7 @@ public abstract class User {
 		return false;
 	}
 
+	public String seeProducts() {
+		return null;
+	}
 }

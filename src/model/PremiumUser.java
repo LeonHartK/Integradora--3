@@ -49,4 +49,25 @@ public class PremiumUser extends User {
         return message;
     }
 
+    public String seeProducts() {
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(0) != null) {
+                if (products.get(i) != null) {
+                    sb.append("Id: ").append(products.get(i).getId()).append("\n");
+                    sb.append("Name: ").append(products.get(i).getName()).append("\n");
+                    sb.append("Total de paginas: ").append(products.get(i).getTotPages()).append("\n");
+                    sb.append("Fecha de publicacion: ").append(products.get(i).getDatePost()).append("\n");
+                    sb.append("URL: ").append(products.get(i).getUrl()).append("\n");
+                    sb.append("Total de paginas leidas: ").append(products.get(i).getTotPagesRead()).append("\n");
+                    sb.append("--------------------\n");
+                }
+            }
+        }
+        String resultado = sb.toString();
+
+        return resultado;
+    }
+
 }

@@ -32,8 +32,10 @@ public class StandarUser extends User {
         boolean status = false;
         for (int i = 0; i < products.length && !status; i++) {
             if (products[0] != null) {
-                if (products[i].getId().equalsIgnoreCase(id)) {
-                    status = true;
+                if (products[i] != null) {
+                    if (products[i].getId().equalsIgnoreCase(id)) {
+                        status = true;
+                    }
                 }
             }
         }
@@ -54,6 +56,27 @@ public class StandarUser extends User {
             }
         }
         return message;
+    }
+
+    public String seeProducts() {
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < products.length; i++) {
+            if (products[0] != null) {
+                if (products[i] != null) {
+                    sb.append("Id: ").append(products[i].getId()).append("\n");
+                    sb.append("Name: ").append(products[i].getName()).append("\n");
+                    sb.append("Total de paginas: ").append(products[i].getTotPages()).append("\n");
+                    sb.append("Fecha de publicacion: ").append(products[i].getDatePost()).append("\n");
+                    sb.append("URL: ").append(products[i].getUrl()).append("\n");
+                    sb.append("Total de paginas leidas: ").append(products[i].getTotPagesRead()).append("\n");
+                    sb.append("--------------------\n");
+                }
+            }
+        }
+        String resultado = sb.toString();
+
+        return resultado;
     }
 
 }
